@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\BroodRepository;
+use App\Repository\PizzaRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\UX\Turbo\Attribute\Broadcast;
 
-#[ORM\Entity(repositoryClass: BroodRepository::class)]
+#[ORM\Entity(repositoryClass: PizzaRepository::class)]
 #[Broadcast]
-class Brood
+class Pizza
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

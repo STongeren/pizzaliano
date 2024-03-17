@@ -75,14 +75,14 @@
     </div>
 
     <div class="row card-row-gap">
-        {% for bakkerij in brood %}
+        {% for pizza in pizza %}
             <div class="col-md-3 py-3">
                 <div class="card poster"> <!-- Added "poster" class here -->
                     {% set productNumber = loop.index %}
-                    <img src="{{ asset('img/product' ~ productNumber ~ '.png') }}" class="card-img-top" alt="{{ bakkerij.name }}">
+                    <img src="{{ asset('img/product' ~ productNumber ~ '.png') }}" class="card-img-top" alt="{{ pizza.name }}">
                     <div class="card-body">
-                        <h5 class="card-title">{{ bakkerij.name }}</h5>
-                        <p class="card-text">Price: {{ bakkerij.price }}</p>
+                        <h5 class="card-title">{{ pizza.name }}</h5>
+                        <p class="card-text">Price: {{ pizza.price }}</p>
                         <a href="{{ path('categories') }}" class="btn">View Details</a> <!-- Added path to categories here -->
                     </div>
                 </div>
