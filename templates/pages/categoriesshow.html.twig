@@ -1,11 +1,41 @@
+{# pages/categoriesshow.html.twig #}
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Category Show Base Page</title>
+    <title>Pizzas in Category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            margin-bottom: 20px;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-<h1>Category Show Base Page</h1>
-<p>Category ID: {{ id }}</p>
-<p>Category Name: {{ name }}</p>
+    <h1>Pizzas in Category</h1>
+    
+    {% if pizzas is not empty %}
+        <div class="row">
+            {% for pizza in pizzas %}
+                <div class="col-md-4 py-3">
+                    <div class="card">
+                        <img src="{{ asset('img/product' ~ pizza.id ~ '.png') }}" class="card-img-top" alt="{{ pizza.name }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ pizza.name }}</h5>
+                            <p class="card-text">Price: {{ pizza.price }}</p>
+                            <a href="{{ path('categories') }}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No pizzas found for this category.</p>
+    {% endif %}
+
 </body>
 </html>

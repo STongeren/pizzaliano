@@ -1,5 +1,7 @@
 <?php
 
+// src/Entity/Pizza.php
+
 namespace App\Entity;
 
 use App\Repository\PizzaRepository;
@@ -22,6 +24,14 @@ class Pizza
     #[ORM\Column(type: Types::DECIMAL, precision: 4, scale: 2)]
     private ?string $price = null;
 
+    #[ORM\Column(type: Types::INTEGER)]
+    private ?int $category_id = null; // New category_id field
+
+    // Define association with Category entity
+    #[ORM\ManyToOne(targetEntity: Category::class)]
+    #[ORM\JoinColumn(name: "category_id", referencedColumnName: "id", nullable: false)]
+    private ?Category $category = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -32,7 +42,7 @@ class Pizza
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -44,9 +54,33 @@ class Pizza
         return $this->price;
     }
 
-    public function setPrice(string $price): static
+    public function setPrice(string $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getCategoryId(): ?int
+    {
+        return $this->category_id;
+    }
+
+    public function setCategoryId(?int $categoryId): self
+    {
+        $this->category_id = $categoryId;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
