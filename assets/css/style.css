@@ -104,8 +104,8 @@ body {
 
 .card {
   position: relative;
-  width: 370px;
-  height: 330px;
+  width: 500px;
+  height: 480px;
   background: #000;
   border-radius: 18px;
   overflow: hidden;
@@ -145,7 +145,7 @@ body {
 }
 
    .card-img-top {
-        width: 80%; /* Adjust the width percentage as needed */
+        width: 60%; /* Adjust the width percentage as needed */
     }
 .poster {
   position: relative;

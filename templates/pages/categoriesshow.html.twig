@@ -1,41 +1,37 @@
-{# pages/categoriesshow.html.twig #}
+{# templates/pages/categoriesshow.html.twig #}
+
+{# templates/pages/categoriesshow.html.twig #}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzas in Category</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .card {
-            margin-bottom: 20px;
-        }
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}" />
 </head>
 <body>
-    <h1>Pizzas in Category</h1>
-    
-    {% if pizzas is not empty %}
+    <div class="container">
+        <h1>Pizzas in Category</h1>
+        
         <div class="row">
             {% for pizza in pizzas %}
-                <div class="col-md-4 py-3">
-                    <div class="card">
-                        <img src="{{ asset('img/product' ~ pizza.id ~ '.png') }}" class="card-img-top" alt="{{ pizza.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ pizza.name }}</h5>
-                            <p class="card-text">Price: {{ pizza.price }}</p>
-                            <a href="{{ path('categories') }}" class="btn btn-primary">View Details</a>
-                        </div>
+            <div class="col-md-6 mb-6">
+                <div class="card">
+                    <img src="{{ asset('img/product' ~ pizza.id ~ '.png') }}" class="card-img-top" alt="{{ pizza.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pizza.name }}</h5>
+                        <p class="card-text">Price: {{ pizza.price }}</p>
+                        <form method="post">
+                            <input type="hidden" name="pizza_id" value="{{ pizza.id }}">
+                            <button type="submit" class="btn btn-primary">Add to Cart</button>
+                        </form>
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
-    {% else %}
-        <p>No pizzas found for this category.</p>
-    {% endif %}
-
+    </div>
 </body>
 </html>
