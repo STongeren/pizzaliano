@@ -1,5 +1,3 @@
-{# templates/pages/categoriesshow.html.twig #}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,8 +65,7 @@
                                 <p class="card-text">Price: {{ pizza.price }}</p>
                                 <form method="post">
                                     <input type="hidden" name="pizza_id" value="{{ pizza.id }}">
-                                    <button
-                                    type="submit" class="btn btn-primary">Add to Cart</button>
+                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
                                 </form>
                             </div>
                         </div>
@@ -89,6 +86,9 @@
                         </li>
                         {% endfor %}
                     </ul>
+                    <form method="post" action="{{ path('submit_order') }}">
+                        <button type="submit" class="btn btn-success">Submit Order</button>
+                    </form>
                 </div>
             </div>
         </div>
