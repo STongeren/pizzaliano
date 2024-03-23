@@ -45,23 +45,26 @@
     <h1 class="col-12 text-center">Welcome to our Categories</h1>
     <hr>
     <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card text-center">
+        <div class="col-md-6">
+            <div class="card1 text-center">
+                <img src="{{ asset('/img/product1.png') }}" class="card-img-top" alt="Vegetarian Pizza">
                 <div class="card-body">
                     <h5 class="card-title"><a href="{{ path('category_show', {id: 1}) }}">Vegetarian</a></h5>
                     <p class="card-text">Here you can find our delicious Vegetarian Pizza's!</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card text-center">
+        <div class="col-md-6">
+            <div class="card1 text-center">
+                <img src="{{ asset('/img/product4.png') }}" class="card-img-top" alt="Meat Pizza">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="{{ path('category_show', {id: 2},) }}">Meat</a></h5>
+                    <h5 class="card-title"><a href="{{ path('category_show', {id: 2}) }}">Meat</a></h5>
                     <p class="card-text">Here you can find our delicious Meat Pizza's!</p>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 
 {% block body %}{% endblock %}

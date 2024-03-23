@@ -10,6 +10,12 @@
 <body>
     <h1>Order Submitted Successfully</h1>
     <p>Thank you for your order!</p>
-    <!-- Additional content as needed -->
+
+    {# Render the form #}
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
 </body>
 </html>
