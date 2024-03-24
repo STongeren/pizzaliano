@@ -58,11 +58,16 @@
 {% block body %}{% endblock %}
 
 <script>
-    // Reload the page after a short delay
-    setTimeout(function() {
-        location.reload();
-    }, 1000);
+    if (!sessionStorage.getItem('pageReloaded')) {
+        // Set session storage to indicate page has been reloaded
+        sessionStorage.setItem('pageReloaded', true);
+        
+        setTimeout(function() {
+            location.reload();
+        }, 1000); // Adjust the delay time as needed
+    }
 </script>
+
 
 </body>
 </html>

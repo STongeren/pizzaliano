@@ -1,10 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/margesh");
 
 body {
-    background-image: url('../img/bg.webp');
-    background-repeat: repeat;
-    background-size: cover;
-    font-family: "margesh Regular";
+  background-image: url("../img/bg.webp");
+  background-repeat: repeat;
+  background-size: cover;
+  font-family: "margesh Regular";
 }
 
 .container {
@@ -144,10 +144,15 @@ body {
 .card {
   background-color: white;
 }
-
-   .card-img-top {
-        width: 60%; /* Adjust the width percentage as needed */
-    }
+.card-img-top1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.card-img-top {
+  width: 50%; /* Adjust the width percentage as needed */
+}
 .poster {
   position: relative;
   top: 0;
