@@ -2,10 +2,9 @@
 
 namespace App\Controller;
 
-use App\Entity\Brood;
+use App\Entity\Pizza;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -13,7 +12,7 @@ class GuestController extends AbstractController {
 
     #[Route('/', name: 'home')]
     public function defaultPage(EntityManagerInterface $em) {
-        $brood = $em->getRepository(Brood::class)->findAll();
-        return $this->render('/pages/base.html.twig', ['brood' => $brood]);
+        $pizza = $em->getRepository(Pizza::class)->findAll();
+        return $this->render('/pages/base.html.twig', ['pizza' => $pizza]);
     }
 }

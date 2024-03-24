@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzas in Category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}" />
+    <style>
+        .cart-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 300px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+            height: 100vh; 
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-5 mt-2 mb-2">
+            <div class="container-fluid navay">
+                <a class="navbar-brand"  href="{{ path('home')}}">
+                    Sopranos Pizza</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('categories')}}">Categories</a>
+                        </li>
+    
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('contact')}}">Contact me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <h1>Pizzas in Category</h1>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row center">
+                    {% for pizza in pizzas %}
+                    <div class="col-md-6 mb-6">
+                        <div class="card">
+                            <img src="{{ asset('img/product' ~ pizza.id ~ '.png') }}" class="card-img-top1" alt="{{ pizza.name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ pizza.name }}</h5>
+                                <p class="card-text">Price: {{ pizza.price }}</p>
+                                <form method="post">
+                                    <input type="hidden" name="pizza_id" value="{{ pizza.id }}">
+                                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="cart-container">
+                    <h2>Shopping Cart</h2>
+                    <ul>
+                        {% for itemId, item in cartItems %}
+                        <li>{{ item.name }} - Price: {{ item.price }} - Quantity: {{ item.quantity }}
+                            <form method="post" action="{{ path('remove_from_cart', {'category_id': id}) }}">
+                                <input type="hidden" name="item_id" value="{{ itemId }}">
+                                <button type="submit" class="btn btn-danger center">Remove</button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <form method="post" action="{{ path('submit_order') }}">
+                        <button type="submit" class="btn btn-success">Submit Order</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

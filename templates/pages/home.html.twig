@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<h1 class="col-12 text-center">Customer Favourites</h1>
+<div class="row card-row-gap">
+    <div class="row card-row-gap">
+        {% for pizza in pizza %}
+            <div class="col-md-3 py-3">
+                <div class="card">
+                    {% set productNumber = loop.index %}
+                    <img src="{{ asset('img/product' ~ productNumber ~ '.png') }}" class="card-img-top" alt="{{ pizza.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pizza.name }}</h5>
+                        <p class="card-text">Price: {{ pizza.price }}</p>
+                        <a href="{{ path('categories') }}" class="btn btnColor">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+</div>
+  <div class="supporting">
+            <div class="container">
+                <div class="row mt-2">
+                    <div class="col-md-4 center">
+                        <img src="{{ asset('../assets/img/pizza.png') }}" />
+                        <h2>Pizza Categories</h2>
+                        <p>The kinds of pizza-categories we have</p>
+                        <a class="nav-link btn-default" href="{{ path('pizza_categories')}}">Learn More</a>
+                    </div>
+
+                    <div class="col-md-4 center">
+                        <img src="{{ asset('../assets/img/edits.png') }}" />
+                        <h2>Register</h2>
+                        <p>Create your account here</p>
+                        <a class="nav-link btn-default" href="{{ path('app_register')}}">Learn More</a>
+
+                    </div>
+
+                    <div class="col-md-4 center">
+                        <img src="{{ asset('../assets/img/telephone.png') }}" />
+                        <h2>Contact Us</h2>
+                        <p>Contact us here, if you wish to speak with us.</p>
+                        <a class="nav-link btn-default" href="{{ path('app_contact')}}">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 center">
+                    <h1>Featured Pizza</h1>
+                </div>
+                <hr>
+                </hr>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="card">
+                        <div class="poster"><img src="{{ asset('../assets/img/Hete_kip-8060.png') }}" alt=""></div>
+                        <div class="details">
+                            <h1>Hete Kip pizza</h1>
+                            <h2>€ 15,49*</h2>
+                            <p class="desc">
+                              Tomatensaus, mozzarella, kip, ijsbergsla, sweet chilisaus en knoflookolie op de rand. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="card">
+                        <div class="poster"><img src="{{ asset('../assets/img/margherita_di_bufala.png') }}" alt=""></div>
+                        <div class="details">
+                            <h1>Margherita di Bufala</h1>
+                            <h2>€ 14,99*</h2>
+                            <p class="desc">
+            Tomatensaus, mozzarella, buffelmozzarella, parmezaan, oregano en knoflookolie op de rand.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="card">
+                        <div class="poster"><img src="{{ asset('../assets/img/margherita.webp') }}" alt=""></div>
+                        <div class="details">
+                            <h1>Vegan Californian Veggie pizza </h1>
+                            <h2>€ 15,99*</h2>
+                            <p class="desc">
+           Tomatensaus, vegan kaas, rode ui, paprika, champignons en olijven en knoflookolie over de rand.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{# templates/order/submit.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}" />
+</head>
+<body>
+    <h1 class='center white-text'>Enter your info to confirm your order!</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+
+</body>
+</html>

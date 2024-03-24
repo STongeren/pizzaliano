@@ -1,10 +1,10 @@
 @import url("https://fonts.cdnfonts.com/css/margesh");
 
 body {
-    background-image: url('../img/bg.webp');
-    background-repeat: repeat;
-    background-size: cover;
-    font-family: "margesh Regular";
+  background-image: url("../img/bg.webp");
+  background-repeat: repeat;
+  background-size: cover;
+  font-family: "margesh Regular";
 }
 
 .container {
@@ -12,7 +12,9 @@ body {
   border: 1px solid black;
   border-radius: 10px;
 }
-
+.white-text {
+  color: white;
+}
 .pull-right img-thumbnail {
   margin-top: -10px;
   margin-bottom: 10px;
@@ -104,8 +106,8 @@ body {
 
 .card {
   position: relative;
-  width: 370px;
-  height: 330px;
+  width: 550px;
+  height: 680px;
   background: #000;
   border-radius: 18px;
   overflow: hidden;
@@ -118,8 +120,7 @@ body {
 .card1 {
   position: relative;
   width: 550px;
-  height: 400px;
-  background: #000;
+  height: 450px;
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -143,10 +144,15 @@ body {
 .card {
   background-color: white;
 }
-
-   .card-img-top {
-        width: 80%; /* Adjust the width percentage as needed */
-    }
+.card-img-top1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.card-img-top {
+  width: 50%; /* Adjust the width percentage as needed */
+}
 .poster {
   position: relative;
   top: 0;

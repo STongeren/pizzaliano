@@ -3,3 +3,11 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+# config/routes.yaml
+remove_from_cart:
+    path: /cart/remove
+    controller: App\Controller\CategoriesShow::removeFromCart
+    methods: ['POST']
+submit_order:
+    path: /order/submit
+    controller: App\Controller\OrderController::submitOrder
