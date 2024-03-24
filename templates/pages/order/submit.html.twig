@@ -6,16 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Confirmation</title>
+    <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}" />
 </head>
 <body>
-    <h1>Order Submitted Successfully</h1>
-    <p>Thank you for your order!</p>
+    <h1 class='center'>Enter your info to confirm</h1>
 
-    {# Render the form #}
     {{ form_start(form) }}
     {{ form_row(form.email) }}
     {{ form_row(form.address) }}
     {{ form_row(form.submit) }}
     {{ form_end(form) }}
+
 </body>
 </html>
