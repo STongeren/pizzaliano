@@ -31,7 +31,5 @@ final class Version20240317134311 extends AbstractMigration
         // Drop foreign key constraint
         $this->addSql('ALTER TABLE pizza DROP FOREIGN KEY FK_category');
         
-        // Drop category_id column from pizza table
-        $this->addSql('ALTER TABLE pizza DROP category_id');
     }
 }

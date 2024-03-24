@@ -12,7 +12,9 @@ body {
   border: 1px solid black;
   border-radius: 10px;
 }
-
+.white-text {
+  color: white;
+}
 .pull-right img-thumbnail {
   margin-top: -10px;
   margin-bottom: 10px;

@@ -6,13 +6,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Entity
+ * @ORM\Table(name="orders")
  */
 class Order
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      * @ORM\Column(type="integer")
      */
     private $id;
@@ -20,30 +21,18 @@ class Order
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $email;
 
-    // Add more properties and methods as needed...
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $address;
+
+    // Getters and setters for $id, $email, and $address
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -54,7 +43,17 @@ class Order
     public function setEmail(string $email): self
     {
         $this->email = $email;
+        return $this;
+    }
 
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(string $address): self
+    {
+        $this->address = $address;
         return $this;
     }
 }
